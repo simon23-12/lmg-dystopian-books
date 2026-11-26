@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>The Great LMG Dystopian Book Overview</title>
+  <meta name="description" content="Fifteen dystopian novels, one poster each — by the English Q2 course at LMG Düsseldorf.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0b0d12">
+  <meta name="color-scheme" content="dark">
+
+  <!-- iPad: als App auf den Home-Bildschirm -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Dystopia">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+
+  <link rel="preload" as="image" href="bg.jpg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true"></div>
+
+  <header class="hero">
+    <img src="bg.jpg" width="1376" height="768"
+         alt="The Great LMG Dystopian Book Overview — A Curator's Guide to Dystopian Worlds">
+  </header>
+
+  <main>
+    <section class="intro">
+      <p class="kicker">English Q2 · LMG Düsseldorf</p>
+      <p class="lead">
+        Fifteen posters, fourteen novels, one hundred years of nightmares —
+        from <span class="neon">1924</span> to <span class="neon">2019</span>.
+        Tap a poster to step inside.
+      </p>
+    </section>
+
+    <ol class="timeline" id="books" aria-label="Posters, ordered by year of publication"></ol>
+  </main>
+
+  <footer class="foot">
+    <p>Student work, English Q2 · Leibniz-Montessori-Gymnasium Düsseldorf</p>
+    <p class="offline" id="offline" hidden>Saved for offline viewing</p>
+  </footer>
+
+  <!-- Vollbild-Ansicht -->
+  <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="v-title" hidden>
+    <div class="v-stage" id="stage">
+      <img id="v-img" alt="" draggable="false">
+    </div>
+    <div class="v-bar v-top">
+      <span class="v-count" id="v-count"></span>
+      <button class="v-btn" id="v-close" aria-label="Close">✕</button>
+    </div>
+    <button class="v-btn v-nav v-prev" id="v-prev" aria-label="Previous poster">‹</button>
+    <button class="v-btn v-nav v-next" id="v-next" aria-label="Next poster">›</button>
+    <div class="v-bar v-bottom">
+      <div>
+        <h2 id="v-title"></h2>
+        <p id="v-meta"></p>
+      </div>
+      <p class="v-hint">Pinch or double-tap to zoom · swipe to browse</p>
+    </div>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

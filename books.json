@@ -1,0 +1,107 @@
+[
+ {
+  "slug": "we",
+  "title": "We",
+  "author": "Yevgeny Zamyatin",
+  "year": 1924,
+  "ratio": 0.7733
+ },
+ {
+  "slug": "brave-new-world",
+  "title": "Brave New World",
+  "author": "Aldous Huxley",
+  "year": 1932,
+  "ratio": 1.5
+ },
+ {
+  "slug": "animal-farm",
+  "title": "Animal Farm",
+  "author": "George Orwell",
+  "year": 1945,
+  "ratio": 1.7778
+ },
+ {
+  "slug": "1984",
+  "title": "Nineteen Eighty-Four",
+  "author": "George Orwell",
+  "year": 1949,
+  "ratio": 1.2941
+ },
+ {
+  "slug": "clockwork-orange",
+  "title": "A Clockwork Orange",
+  "author": "Anthony Burgess",
+  "year": 1962,
+  "ratio": 1.7778
+ },
+ {
+  "slug": "handmaids-tale",
+  "title": "The Handmaid's Tale",
+  "author": "Margaret Atwood",
+  "year": 1985,
+  "ratio": 0.5625
+ },
+ {
+  "slug": "children-of-men-1",
+  "title": "The Children of Men",
+  "author": "P. D. James",
+  "year": 1992,
+  "ratio": 1.25
+ },
+ {
+  "slug": "children-of-men-2",
+  "title": "The Children of Men",
+  "author": "P. D. James",
+  "year": 1992,
+  "ratio": 1.7778
+ },
+ {
+  "slug": "parable-of-the-sower",
+  "title": "Parable of the Sower",
+  "author": "Octavia E. Butler",
+  "year": 1993,
+  "ratio": 1.4393
+ },
+ {
+  "slug": "the-giver",
+  "title": "The Giver",
+  "author": "Lois Lowry",
+  "year": 1993,
+  "ratio": 1.7778
+ },
+ {
+  "slug": "oryx-and-crake",
+  "title": "Oryx and Crake",
+  "author": "Margaret Atwood",
+  "year": 2003,
+  "ratio": 1.7778
+ },
+ {
+  "slug": "never-let-me-go",
+  "title": "Never Let Me Go",
+  "author": "Kazuo Ishiguro",
+  "year": 2005,
+  "ratio": 0.7071
+ },
+ {
+  "slug": "hunger-games",
+  "title": "The Hunger Games",
+  "author": "Suzanne Collins",
+  "year": 2008,
+  "ratio": 0.7071
+ },
+ {
+  "slug": "maze-runner",
+  "title": "The Maze Runner",
+  "author": "James Dashner",
+  "year": 2009,
+  "ratio": 1.25
+ },
+ {
+  "slug": "stolen-time",
+  "title": "Stolen Time",
+  "author": "Danielle Rollins",
+  "year": 2019,
+  "ratio": 1.4141
+ }
+]

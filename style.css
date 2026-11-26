@@ -1,0 +1,287 @@
+:root {
+  --ink: #f3ece4;
+  --muted: #a9a39c;
+  --ember: #ff8a4c;
+  --neon: #59e3ff;
+  --glass: rgba(14, 17, 24, 0.62);
+  --line: rgba(255, 255, 255, 0.10);
+  --display: "Avenir Next Condensed", "Arial Narrow", "Roboto Condensed", system-ui, sans-serif;
+  --body: -apple-system, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+  --safe-t: env(safe-area-inset-top, 0px);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-l: env(safe-area-inset-left, 0px);
+  --safe-r: env(safe-area-inset-right, 0px);
+}
+
+* { box-sizing: border-box; }
+
+html { background: #0b0d12; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font: 17px/1.55 var(--body);
+  min-height: 100vh;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Das Titelbild, stark abgedunkelt und verschwommen, liegt hinter allem. */
+.backdrop {
+  position: fixed;
+  inset: -40px;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(11, 13, 18, 0.55) 0%, rgba(11, 13, 18, 0.92) 55%, #0b0d12 100%),
+    url("bg.jpg") center / cover no-repeat;
+  filter: blur(18px) saturate(1.2);
+}
+
+.hero {
+  position: relative;
+  padding-top: var(--safe-t);
+}
+.hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 88vh;
+  object-fit: cover;
+  object-position: 50% 30%;
+  -webkit-mask-image: linear-gradient(180deg, #000 72%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 72%, transparent 100%);
+}
+
+main {
+  width: min(1240px, 100%);
+  margin: 0 auto;
+  padding: 0 calc(20px + var(--safe-r)) 40px calc(20px + var(--safe-l));
+}
+
+.intro {
+  text-align: center;
+  margin: -2vw auto 48px;
+  max-width: 40rem;
+  position: relative;
+}
+.kicker {
+  font: 600 0.95rem/1 var(--display);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin: 0 0 14px;
+}
+.lead {
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+  color: var(--ink);
+  margin: 0;
+  text-wrap: balance;
+}
+.neon {
+  font-family: var(--display);
+  font-weight: 700;
+  color: var(--neon);
+  text-shadow: 0 0 12px rgba(89, 227, 255, 0.55);
+}
+
+/* ---------- Zeitstrahl der Plakate ---------- */
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px 22px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(255, 138, 76, 0.55);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 138, 76, 0.25);
+  outline: none;
+}
+.card:active { transform: scale(0.985); }
+
+.thumb {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: #151821;
+  overflow: hidden;
+}
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 0;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.card:hover .thumb img { transform: scale(1.04); }
+
+.year {
+  position: absolute;
+  left: 12px;
+  bottom: 10px;
+  font: 700 1.55rem/1 var(--display);
+  letter-spacing: 0.04em;
+  color: #fff;
+  padding: 6px 10px 5px;
+  border-radius: 8px;
+  background: rgba(8, 10, 14, 0.72);
+  border: 1px solid rgba(89, 227, 255, 0.45);
+  text-shadow: 0 0 10px rgba(89, 227, 255, 0.7);
+}
+
+.label { padding: 14px 16px 16px; }
+.label h3 {
+  margin: 0;
+  font: 700 1.45rem/1.1 var(--display);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.label p { margin: 4px 0 0; color: var(--muted); font-size: 0.95rem; }
+.label .no {
+  font: 600 0.75rem/1 var(--display);
+  letter-spacing: 0.2em;
+  color: var(--ember);
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.foot {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 24px 20px calc(36px + var(--safe-b));
+}
+.foot p { margin: 4px 0; }
+.offline { color: var(--neon); }
+
+/* ---------- Vollbild-Ansicht ---------- */
+
+.viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: #050608;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.viewer[hidden] { display: none; }
+
+.v-stage {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.v-stage img {
+  max-width: 100%;
+  max-height: 100%;
+  transform-origin: 0 0;
+  will-change: transform;
+  -webkit-user-drag: none;
+}
+.v-stage.anim img { transition: transform 0.28s cubic-bezier(.2, .8, .2, 1), opacity 0.2s; }
+
+.v-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-left: calc(18px + var(--safe-l));
+  padding-right: calc(18px + var(--safe-r));
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.v-bar > * { pointer-events: auto; }
+.v-top {
+  top: 0;
+  padding-top: calc(12px + var(--safe-t));
+  padding-bottom: 28px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent);
+}
+.v-bottom {
+  bottom: 0;
+  align-items: flex-end;
+  padding-top: 40px;
+  padding-bottom: calc(14px + var(--safe-b));
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), transparent);
+}
+.v-bottom h2 {
+  margin: 0;
+  font: 700 clamp(1.3rem, 3vw, 2rem)/1.05 var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.v-bottom p { margin: 4px 0 0; color: var(--muted); }
+.v-hint { font-size: 0.8rem; text-align: right; }
+.v-count { font: 600 1rem var(--display); letter-spacing: 0.15em; color: var(--muted); }
+
+.v-btn {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(20, 22, 28, 0.7);
+  color: #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.v-btn:active { transform: scale(0.94); }
+.v-nav {
+  position: absolute;
+  top: 50%;
+  margin-top: -28px;
+  width: 56px;
+  height: 56px;
+  font-size: 2.2rem;
+  transition: opacity 0.3s;
+}
+.v-prev { left: calc(14px + var(--safe-l)); }
+.v-next { right: calc(14px + var(--safe-r)); }
+.v-nav:disabled { opacity: 0; pointer-events: none; }
+
+/* Gezoomt oder Leiste ausgeblendet: nur das Plakat. */
+.viewer.zoomed .v-bar,
+.viewer.zoomed .v-nav,
+.viewer.ruhig .v-bar,
+.viewer.ruhig .v-nav { opacity: 0; pointer-events: none; }
+
+@media (max-width: 700px) {
+  .v-hint { display: none; }
+  .v-nav { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card, .thumb img, .v-stage.anim img { transition: none; }
+}
