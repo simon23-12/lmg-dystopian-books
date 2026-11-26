@@ -1,6 +1,6 @@
 // Speichert die ganze Seite samt Plakaten, damit sie im Unterricht
 // auch ohne WLAN laeuft. Neue Fassung -> VERSION hochzaehlen.
-const VERSION = "dystopia-v2";
+const VERSION = "dystopia-v3";
 const DATEIEN = [
   "./",
   "index.html",
@@ -45,7 +45,10 @@ const DATEIEN = [
 ];
 
 self.addEventListener("install", (e) => {
-  e.waitUntil(caches.open(VERSION).then((c) => c.addAll(DATEIEN)).then(() => self.skipWaiting()));
+  // cache: "reload" — sonst kaemen alte Dateien aus dem Browser-Cache
+  // (GitHub Pages haelt sie 10 Minuten) in den neuen Offline-Speicher.
+  const frisch = DATEIEN.map((u) => new Request(u, { cache: "reload" }));
+  e.waitUntil(caches.open(VERSION).then((c) => c.addAll(frisch)).then(() => self.skipWaiting()));
 });
 
 self.addEventListener("activate", (e) => {
