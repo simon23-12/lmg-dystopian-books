@@ -1,6 +1,6 @@
 // Speichert die ganze Seite samt Plakaten, damit sie im Unterricht
 // auch ohne WLAN laeuft. Neue Fassung -> VERSION hochzaehlen.
-const VERSION = "dystopia-v1";
+const VERSION = "dystopia-v2";
 const DATEIEN = [
   "./",
   "index.html",

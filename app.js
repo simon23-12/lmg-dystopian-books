@@ -166,7 +166,7 @@ function punkt(e) {
 }
 
 stage.addEventListener("pointerdown", (e) => {
-  stage.setPointerCapture(e.pointerId);
+  try { stage.setPointerCapture(e.pointerId); } catch { /* egal — Gesten laufen trotzdem */ }
   zeiger.set(e.pointerId, punkt(e));
   const p = [...zeiger.values()];
   if (p.length === 1) {
